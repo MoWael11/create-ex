@@ -1,0 +1,38 @@
+{
+  "name": "create-express-app",
+  "version": "1.0.0",
+  "description": "Create express app with a cli",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoWael11/news/create-express-app.git",
+    "directory": "cli"
+  },
+  "type": "module",
+  "exports": "./dist/index.js",
+  "bin": {
+    "create-express-app": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\"",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.3"
+  }
+}

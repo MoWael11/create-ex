@@ -10,10 +10,9 @@ export const logNextSteps = async ({
   packages,
   noInstall,
   projectDir,
-  databaseProvider,
 }: Pick<
   InstallerOptions,
-  'projectName' | 'packages' | 'noInstall' | 'projectDir' | 'databaseProvider'
+  'projectName' | 'packages' | 'noInstall' | 'projectDir'
 >) => {
   const pkgManager = getUserPkgManager();
 
@@ -28,10 +27,6 @@ export const logNextSteps = async ({
     } else {
       logger.info(`  ${pkgManager} install`);
     }
-  }
-
-  if (['postgres', 'mysql'].includes(databaseProvider)) {
-    logger.info("  Start up a database, if needed using './start-database.sh'");
   }
 
   if (packages?.prisma.inUse) {
@@ -51,5 +46,4 @@ export const logNextSteps = async ({
   if (!(await isInsideGitRepo(projectDir)) && !isRootGitRepo(projectDir)) {
     logger.info(`  git init`);
   }
-  logger.info(`  git commit -m "initial commit"`);
 };

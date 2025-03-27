@@ -16,8 +16,9 @@ import { parseNameAndPath } from '@/utils/parseNameAndPath.js';
 import { renderTitle } from '@/utils/renderTitle.js';
 import { installDependencies } from '@/helpers/installDependencies.js';
 import { getVersion } from '@/utils/getExVersion.js';
+import { selectFiles } from './helpers/selectBoilerplate.js';
 
-type CExAPackageJSON = PackageJson & {
+type CEXAPackageJSON = PackageJson & {
   cexaMetadata?: {
     initVersion: string;
   };
@@ -50,7 +51,7 @@ const main = async () => {
   // Write name to package.json
   const pkgJson = fs.readJSONSync(
     path.join(projectDir, 'package.json'),
-  ) as CExAPackageJSON;
+  ) as CEXAPackageJSON;
   pkgJson.name = scopedAppName;
   pkgJson.cexaMetadata = { initVersion: getVersion() };
 
@@ -84,7 +85,6 @@ const main = async () => {
     packages: usePackages,
     noInstall,
     projectDir,
-    databaseProvider,
   });
 
   process.exit(0);

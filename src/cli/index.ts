@@ -89,7 +89,6 @@ export const runCli = async (): Promise<CliResults> => {
   if (cliResults.flags.default) {
     return cliResults;
   }
-  console.log(!cliResults.flags.noGit);
 
   try {
     const pkgManager = getUserPkgManager();
@@ -134,7 +133,7 @@ export const runCli = async (): Promise<CliResults> => {
           return p.select({
             message: 'What database provider would you like to use?',
             options: [
-              { value: 'sqlite', label: 'SQLite (LibSQL)' },
+              { value: 'sqlite', label: 'SQLite' },
               { value: 'mysql', label: 'MySQL' },
               { value: 'postgres', label: 'PostgreSQL' },
               { value: 'planetscale', label: 'PlanetScale' },

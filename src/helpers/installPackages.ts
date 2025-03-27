@@ -14,7 +14,8 @@ type InstallPackagesOptions = InstallerOptions & {
 export const installPackages = (options: InstallPackagesOptions) => {
   const { packages } = options;
 
-  logger.info('Adding boilerplate...');
+  if (Object.entries(packages).some((obj) => obj[1].inUse))
+    logger.info('Adding boilerplate...');
 
   for (const [name, pkgOpts] of Object.entries(packages)) {
     if (pkgOpts.inUse) {

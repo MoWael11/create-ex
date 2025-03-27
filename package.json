@@ -1,6 +1,6 @@
 {
   "name": "create-express-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create express app with a cli",
   "license": "MIT",
   "main": "index.js",
@@ -41,8 +41,7 @@
     "gradient-string": "^3.0.0",
     "module-alias": "^2.2.3",
     "path": "^0.12.7",
-    "sort-package-json": "^2.14.0",
-    "tsup": "^8.4.0"
+    "sort-package-json": "^2.14.0"
   },
   "devDependencies": {
     "@planetscale/database": "^1.19.0",
@@ -50,6 +49,7 @@
     "@prisma/client": "^6.4.1",
     "@types/fs-extra": "^11.0.4",
     "rimraf": "^6.0.1",
+    "tsup": "^8.4.0",
     "type-fest": "^4.35.0",
     "typescript": "^5.7.3"
   }

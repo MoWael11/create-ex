@@ -1,0 +1,9 @@
+# envionment
+NODE_ENV=development
+PORT=3001
+
+# database
+DATABASE_URL="your database url"
+
+# urls
+BASE_URL=http://localhost:3001

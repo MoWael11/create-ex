@@ -44,7 +44,7 @@ For more details on how to work with Express and Prisma, check out these resourc
 
 ## Contributing
 
-We welcome contributions! Please see our [CONTRIBUTING.md](https://github.com/MoWael11/create-ex/CONTRIBUTING.md) for details on:
+We welcome contributions! Please see our [CONTRIBUTING.md](https://github.com/MoWael11/create-ex/blob/main/CONTRIBUTING.md) for details on:
 
 - Reporting issues
 - Code style guidelines
@@ -54,7 +54,7 @@ We welcome contributions! Please see our [CONTRIBUTING.md](https://github.com/Mo
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/MoWael11/create-ex/LICENSE.md) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/MoWael11/create-ex/blob/main/LICENSE) file for details.
 
 ## Support
 

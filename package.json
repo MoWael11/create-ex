@@ -1,17 +1,17 @@
 {
   "name": "create-ex",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Create express app with ex cli",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MoWael11/news/create-ex.git"
+    "url": "https://github.com/MoWael11/create-ex.git"
   },
   "type": "module",
   "exports": "./dist/index.js",
   "bin": {
-    "create-ex": "./dist/index.js"
+    "create-ex": "dist/index.js"
   },
   "files": [
     "dist",

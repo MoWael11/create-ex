@@ -2,7 +2,7 @@ import * as p from '@clack/prompts';
 import chalk from 'chalk';
 import { Command } from 'commander';
 
-import { CREATE_EXPRESS_APP, DEFAULT_APP_NAME } from '@/consts.js';
+import { CREATE_EX, DEFAULT_APP_NAME } from '@/consts.js';
 
 import {
   type AvailablePackages,
@@ -47,7 +47,7 @@ export const runCli = async (): Promise<CliResults> => {
   const cliResults = defaultOptions;
 
   const program = new Command()
-    .name(CREATE_EXPRESS_APP)
+    .name(CREATE_EX)
     .description('A CLI for creating express app')
     .argument(
       '[dir]',
@@ -192,11 +192,11 @@ export const runCli = async (): Promise<CliResults> => {
       },
     };
   } catch (err) {
-    // If the user is not calling create-express-app from an interactive terminal, inquirer will throw an IsTTYError
+    // If the user is not calling create-ex from an interactive terminal, inquirer will throw an IsTTYError
     // If this happens, we catch the error, tell the user what has happened, and then continue to run the program with a default express app
     if (err instanceof IsTTYError) {
       logger.warn(`
-        ${CREATE_EXPRESS_APP} needs an interactive terminal to provide options`);
+        ${CREATE_EX} needs an interactive terminal to provide options`);
 
       const shouldContinue = await p.confirm({
         message: `Continue scaffolding a default ex app?`,

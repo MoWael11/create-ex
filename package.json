@@ -1,18 +1,17 @@
 {
-  "name": "create-express-app",
-  "version": "1.0.2",
-  "description": "Create express app with a cli",
+  "name": "create-ex",
+  "version": "1.0.3",
+  "description": "Create express app with ex cli",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MoWael11/news/create-express-app.git",
-    "directory": "cli"
+    "url": "https://github.com/MoWael11/news/create-ex.git"
   },
   "type": "module",
   "exports": "./dist/index.js",
   "bin": {
-    "create-express-app": "./dist/index.js"
+    "create-ex": "./dist/index.js"
   },
   "files": [
     "dist",
@@ -27,10 +26,22 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rimraf dist",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "pub:beta": "pnpm build && npm publish --tag beta",
+    "pub:next": "pnpm build && npm publish --tag next",
+    "pub:release": "pnpm build && npm publish"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "create-ex",
+    "express",
+    "typescript",
+    "cli",
+    "generator",
+    "boilerplate",
+    "starter",
+    "template"
+  ],
+  "author": "Mohamed",
   "dependencies": {
     "@clack/prompts": "^0.6.3",
     "@types/module-alias": "^2.0.4",
@@ -40,6 +51,7 @@
     "fs-extra": "^11.3.0",
     "gradient-string": "^3.0.0",
     "module-alias": "^2.2.3",
+    "ora": "^8.2.0",
     "path": "^0.12.7",
     "sort-package-json": "^2.14.0"
   },

@@ -16,10 +16,9 @@ import { parseNameAndPath } from '@/utils/parseNameAndPath.js';
 import { renderTitle } from '@/utils/renderTitle.js';
 import { installDependencies } from '@/helpers/installDependencies.js';
 import { getVersion } from '@/utils/getExVersion.js';
-import { selectFiles } from './helpers/selectBoilerplate.js';
 
-type CEXAPackageJSON = PackageJson & {
-  cexaMetadata?: {
+type CEXPackageJSON = PackageJson & {
+  cexMetadata?: {
     initVersion: string;
   };
 };
@@ -51,9 +50,9 @@ const main = async () => {
   // Write name to package.json
   const pkgJson = fs.readJSONSync(
     path.join(projectDir, 'package.json'),
-  ) as CEXAPackageJSON;
+  ) as CEXPackageJSON;
   pkgJson.name = scopedAppName;
-  pkgJson.cexaMetadata = { initVersion: getVersion() };
+  pkgJson.cexMetadata = { initVersion: getVersion() };
 
   // ? Bun doesn't support this field (yet)
   if (pkgManager !== 'bun') {

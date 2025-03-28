@@ -4,12 +4,9 @@ import { TITLE_TEXT } from '@/consts.js';
 
 // colors brought in from vscode poimandres theme
 const poimandresTheme = {
-  blue: '#add7ff',
-  cyan: '#89ddff',
-  green: '#5de4c7',
-  magenta: '#fae4fc',
-  red: '#d0679d',
-  yellow: '#fffac2',
+  c1: '#c3e387',
+  c2: '#c3e387',
+  c3: '#3ec83e',
 };
 
 export const renderTitle = () => {

@@ -3,4 +3,4 @@ NODE_ENV=development
 PORT=3000
 
 # urls
-BASE_URL=http://localhost:3001
+BASE_URL=http://localhost:3000

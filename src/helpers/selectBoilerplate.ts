@@ -16,17 +16,25 @@ export const selectIndexFile = ({
   projectDir,
   packages,
 }: SelectBoilerplateProps) => {
-  const IndexFileDir = path.join(PKG_ROOT, 'template/extras/src/index');
+  const usingTS = packages.typescript.inUse;
+
+  const subFolder = usingTS ? 'ts' : 'js';
+  const ext = usingTS ? 'ts' : 'js';
+
+  const IndexFileDir = path.join(
+    PKG_ROOT,
+    `template/extras/src/${subFolder}/index`,
+  );
 
   const usingDb = packages.prisma.inUse;
-  let indexFile = 'base.ts';
+  let indexFile = `base.${ext}`;
 
   if (usingDb) {
-    indexFile = 'with-db.ts';
+    indexFile = `with-db.${ext}`;
   }
 
   const indexSrc = path.join(IndexFileDir, indexFile);
-  const indexDest = path.join(projectDir, 'src/index.ts');
+  const indexDest = path.join(projectDir, `src/index.${ext}`);
   fs.copySync(indexSrc, indexDest);
 };
 
@@ -78,9 +86,16 @@ export const selectFiles = (
   folders: string[],
 ) => {
   const usingDb = packages.prisma.inUse;
+  const usingTS = packages.typescript.inUse;
+
+  const subFolder = usingTS ? 'ts' : 'js';
+  const ext = usingTS ? 'ts' : 'js';
 
   for (const folder of folders) {
-    const sourceDir = path.join(PKG_ROOT, `template/extras/src/${folder}`);
+    const sourceDir = path.join(
+      PKG_ROOT,
+      `template/extras/src/${subFolder}/${folder}`,
+    );
     const files = fs.readdirSync(sourceDir);
 
     const destDir = path.join(projectDir, `src/${folder}`);
@@ -93,14 +108,16 @@ export const selectFiles = (
       if (fs.statSync(fileSrc).isFile()) {
         fs.copyFileSync(fileSrc, fileDest);
       } else if (fs.statSync(fileSrc).isDirectory()) {
-        const baseFile = path.join(fileSrc, 'base.ts');
-        const dbFile = path.join(fileSrc, 'with-db.ts');
-        const sourceFile = usingDb ? dbFile : baseFile;
+        let fileName = `base.${ext}`;
+        if (usingDb) {
+          fileName = `with-db.${ext}`;
+        }
 
+        const srcFile = path.join(fileSrc, fileName);
         const folderName = path.basename(fileSrc);
-        const destFile = path.join(destDir, `${folderName}.ts`);
+        const destFile = path.join(destDir, `${folderName}.${ext}`);
 
-        fs.copyFileSync(sourceFile, destFile);
+        fs.copyFileSync(srcFile, destFile);
       }
     }
   }

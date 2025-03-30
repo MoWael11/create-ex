@@ -1,2 +1,77 @@
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Build Outputs
+build
 dist
+.next/
+out/
+build/Release
+
+# local db
+db
+
+# Local Environment Files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Runtime Data
+pids
+*.pid
+*.seed
+
+# Testing
+coverage
+.nyc_output
+blob-report/
+test-results/
+playwright/.cache/
+playwright-report/
+lib-cov
+
+# Turbo
+.turbo
+
+# Prisma
+migrations
+
+# Logs
+logs
+archive
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Grunt
+.grunt
+
+# node-waf configuration
+.lock-wscript
+
+# IDEs and Editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Miscellaneous
+.DS_Store
+*.pem
+

@@ -38,6 +38,7 @@ export const createProject = async ({
     projectDir,
     pkgManager,
     noInstall,
+    packages,
   });
 
   // Install the selected packages

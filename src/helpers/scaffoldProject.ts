@@ -94,6 +94,6 @@ export const scaffoldProject = async ({
     projectName === '.' ? 'App' : chalk.cyan.bold(projectName);
 
   spinner.succeed(
-    `${scaffoldedName} ${chalk.green('scaffolded successfully!')}\n`,
+    `${scaffoldedName} ${chalk.green('scaffolded successfully!\n')}`,
   );
 };

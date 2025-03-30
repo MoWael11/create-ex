@@ -9,6 +9,7 @@ import { addPackageDependency } from '@/utils/addPackageDependency.js';
 export const prismaInstaller: Installer = ({
   projectDir,
   databaseProvider,
+  packages,
 }) => {
   addPackageDependency({
     projectDir,
@@ -27,11 +28,16 @@ export const prismaInstaller: Installer = ({
       devMode: false,
     });
 
-  const templateDir = path.join(PKG_ROOT, 'template');
+  const usingTS = packages.typescript.inUse;
+
+  const subFolder = usingTS ? 'ts' : 'js';
+  const ext = usingTS ? 'ts' : 'js';
+
+  const extrasDir = path.join(PKG_ROOT, 'template/extras');
 
   const schemaSrc = path.join(
-    templateDir,
-    'extras/prisma/schema',
+    extrasDir,
+    'prisma/schema',
     `${
       databaseProvider === 'planetscale'
         ? 'planetscale'
@@ -62,14 +68,14 @@ export const prismaInstaller: Installer = ({
   fs.writeFileSync(schemaDest, schemaText);
 
   const clientSrc = path.join(
-    templateDir,
-    'extras/src/db',
+    extrasDir,
+    `src/${subFolder}/db`,
     databaseProvider === 'planetscale'
-      ? 'db-prisma-planetscale.ts'
-      : 'db-prisma.ts',
+      ? `db-prisma-planetscale.${ext}`
+      : `db-prisma.${ext}`,
   );
 
-  const clientDest = path.join(projectDir, 'src/db/prisma.ts');
+  const clientDest = path.join(projectDir, `src/db/prisma.${ext}`);
 
   // add postinstall and push script to package.json
   const packageJsonPath = path.join(projectDir, 'package.json');

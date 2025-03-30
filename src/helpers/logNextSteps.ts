@@ -3,6 +3,7 @@ import { type InstallerOptions } from '@/installers/index.js';
 import { getUserPkgManager } from '@/utils/getUserPkgManager.js';
 import { logger } from '@/utils/logger.js';
 import { isInsideGitRepo, isRootGitRepo } from './git.js';
+import chalk from 'chalk';
 
 // This logs the next steps that the user should take in order to advance the project
 export const logNextSteps = async ({
@@ -31,9 +32,17 @@ export const logNextSteps = async ({
 
   if (packages?.prisma.inUse) {
     if (['npm', 'bun'].includes(pkgManager)) {
-      logger.info(`  ${pkgManager} run db:push`);
+      logger.info(
+        `  ${pkgManager} run db:push  ${chalk.yellowBright(
+          '(Note: you will need to run this command to avoid runtime errors)',
+        )}`,
+      );
     } else {
-      logger.info(`  ${pkgManager} db:push`);
+      logger.info(
+        `  ${pkgManager} db:push  ${chalk.yellowBright(
+          '(Note: you will need to run this command to avoid runtime errors)',
+        )}`,
+      );
     }
   }
 

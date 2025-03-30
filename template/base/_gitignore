@@ -72,14 +72,3 @@ pnpm-debug.log*
 .DS_Store
 *.pem
 
-# Ignore contents of these directories but keep the directories themselves# Ignore specific directories in public
-public/avatars/*
-!public/avatars/.gitkeep
-
-public/articles/*
-!public/articles/.gitkeep
-
-public/chat/*
-!public/chat/.gitkeep
-
-docs/newman/report.html

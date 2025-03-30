@@ -1,4 +1,4 @@
-import db from '@/db/prisma';
+import { db } from '@/db/prisma';
 
 export const getAllPosts = async () => {
   const posts = await db.post.findMany();

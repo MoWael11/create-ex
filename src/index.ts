@@ -30,7 +30,8 @@ const main = async () => {
   const {
     appName,
     packages,
-    flags: { noGit, noInstall, importAlias, databaseProvider },
+    databaseProvider,
+    flags: { noGit, noInstall, importAlias },
   } = await runCli();
 
   const usePackages = buildPkgInstallerMap(packages);

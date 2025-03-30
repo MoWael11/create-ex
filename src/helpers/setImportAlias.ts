@@ -14,7 +14,13 @@ function replaceTextInFiles(
       replaceTextInFiles(filePath, search, replacement);
     } else {
       const data = fs.readFileSync(filePath, 'utf8');
-      const updatedData = data.replace(new RegExp(search, 'g'), replacement);
+      let updatedData = data.replace(new RegExp(search, 'g'), replacement);
+
+      // for module-alias.js
+      if (file === 'module-alias.js') {
+        updatedData = updatedData.replace('@', `${replacement.slice(0, -1)}`);
+      }
+
       fs.writeFileSync(filePath, updatedData, 'utf8');
     }
   });

@@ -5,7 +5,7 @@ export const logger = {
     console.log(chalk.red(...args));
   },
   warn(...args: unknown[]) {
-    console.log(chalk.yellow(...args));
+    console.log(chalk.yellowBright(...args));
   },
   info(...args: unknown[]) {
     console.log(chalk.cyan(...args));

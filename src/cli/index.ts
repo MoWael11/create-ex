@@ -20,26 +20,24 @@ interface CliFlags {
   noInstall: boolean;
   default: boolean;
   importAlias: string;
-  prisma: boolean;
-  databaseProvider: DatabaseProvider;
 }
 
 interface CliResults {
   appName: string;
   packages: AvailablePackages[];
+  databaseProvider: DatabaseProvider;
   flags: CliFlags;
 }
 
 const defaultOptions: CliResults = {
   appName: DEFAULT_APP_NAME,
-  packages: ['prisma'],
+  packages: ['prisma', 'typescript'],
+  databaseProvider: 'postgres',
   flags: {
     noGit: false,
     noInstall: false,
     default: false,
-    prisma: false,
     importAlias: '@/',
-    databaseProvider: 'sqlite',
   },
 };
 
@@ -114,10 +112,6 @@ export const runCli = async (): Promise<CliResults> => {
             initialValue: 'typescript',
           });
         },
-        _: async ({ results }) =>
-          results.language === 'javascript'
-            ? p.note(chalk.redBright('Wrong answer, using TypeScript instead'))
-            : undefined,
         database: () => {
           return p.select({
             message: 'What database ORM would you like to use?',
@@ -138,7 +132,7 @@ export const runCli = async (): Promise<CliResults> => {
               { value: 'postgres', label: 'PostgreSQL' },
               { value: 'planetscale', label: 'PlanetScale' },
             ],
-            initialValue: defaultOptions.flags.databaseProvider,
+            initialValue: 'sqlite',
           });
         },
         ...(!cliResults.flags.noGit && {
@@ -177,18 +171,19 @@ export const runCli = async (): Promise<CliResults> => {
     );
 
     const packages: AvailablePackages[] = [];
+    if (project.language === 'typescript') packages.push('typescript');
     if (project.database === 'prisma') packages.push('prisma');
 
     return {
       appName: project.name ?? cliResults.appName,
       packages,
+      databaseProvider:
+        (project.databaseProvider as DatabaseProvider) || 'sqlite',
       flags: {
         ...cliResults.flags,
         noGit: !project.git || cliResults.flags.noGit,
         noInstall: !project.install || cliResults.flags.noInstall,
         importAlias: project.importAlias ?? cliResults.flags.importAlias,
-        databaseProvider:
-          (project.databaseProvider as DatabaseProvider) || 'sqlite',
       },
     };
   } catch (err) {

@@ -13,9 +13,9 @@ export const dependencyVersionMap = {
   rimraf: '^6.0.1',
 
   // Prisma
-  prisma: '^5.14.0',
-  '@prisma/client': '^5.14.0',
-  '@prisma/adapter-planetscale': '^5.14.0',
+  prisma: '^6.5.0',
+  '@prisma/client': '^6.5.0',
+  '@prisma/adapter-planetscale': '^6.5.0',
   '@planetscale/database': '^1.19.0',
 } as const;
 

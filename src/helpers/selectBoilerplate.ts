@@ -59,7 +59,7 @@ export const selectEnvFile = ({
       planetscale:
         'mysql://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@aws.connect.psdb.cloud/<DATABASE_NAME>?sslaccept=strict',
       mongodb:
-        'mongodb+srv://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@cluster0.ns1yp.mongodb.net/<DATABASE_NAME>',
+        'mongodb://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@localhost:27017/<DATABASE_NAME>',
     };
 
     const connectionString = databaseUrls[databaseProvider];

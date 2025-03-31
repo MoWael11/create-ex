@@ -1,12 +1,11 @@
 import { logEvents } from '@/utils/logger';
-import { ErrorRequestHandler } from 'express';
+import { ErrorRequestHandler, Request, Response } from 'express';
 import HttpException from '@/models/http-exception.model';
 
 const errorHandler: ErrorRequestHandler = async (
   err: Error | HttpException,
-  req,
-  res,
-  next,
+  req: Request,
+  res: Response,
 ) => {
   if (err instanceof HttpException && err.errorCode) {
     return res

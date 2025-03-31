@@ -28,7 +28,7 @@ const databaseErrorHandler = (err, req, res, next) => {
   next(err);
 };
 
-const errorHandler = async (err, req, res, next) => {
+const errorHandler = async (err, req, res) => {
   if (err instanceof HttpException && err.errorCode) {
     return res
       .status(err.errorCode)

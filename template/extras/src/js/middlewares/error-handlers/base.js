@@ -1,7 +1,7 @@
 const { logEvents } = require('@/utils/logger');
 const HttpException = require('@/models/http-exception.model');
 
-const errorHandler = async (err, req, res, next) => {
+const errorHandler = async (err, req, res) => {
   if (err instanceof HttpException && err.errorCode) {
     return res
       .status(err.errorCode)

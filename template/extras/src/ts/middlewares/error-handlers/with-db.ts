@@ -4,10 +4,15 @@ import {
   PrismaClientValidationError,
 } from '@prisma/client/runtime/library';
 import { logEvents } from '@/utils/logger';
-import { ErrorRequestHandler } from 'express';
+import { ErrorRequestHandler, Request, Response, NextFunction } from 'express';
 import HttpException from '@/models/http-exception.model';
 
-const databaseErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
+const databaseErrorHandler: ErrorRequestHandler = (
+  err: Error | HttpException,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   if (
     err instanceof PrismaClientKnownRequestError ||
     err instanceof PrismaClientValidationError ||
@@ -30,10 +35,9 @@ const databaseErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
 };
 
 const errorHandler: ErrorRequestHandler = async (
-  err: Error | HttpException,
-  req,
-  res,
-  next,
+  err: Error | HttpException | SyntaxError,
+  req: Request,
+  res: Response,
 ) => {
   if (err instanceof HttpException && err.errorCode) {
     return res

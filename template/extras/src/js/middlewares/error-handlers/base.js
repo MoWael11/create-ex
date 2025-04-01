@@ -3,11 +3,11 @@ const HttpException = require('@/models/http-exception.model');
 
 // Express error handling middleware requires 4 parameters.
 // The first parameter is the error object.
-// If we remove the "next" parameter, Express would treat this as a regular middleware
+// If we remove the "_" parameter, Express would treat this as a regular middleware
 // instead of an error handler middleware.
 
 // eslint-disable-next-line no-unused-vars
-const errorHandler = async (err, req, res, next) => {
+const errorHandler = async (err, req, res, _) => {
   if (err instanceof HttpException && err.errorCode) {
     return res
       .status(err.errorCode)

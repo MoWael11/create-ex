@@ -36,14 +36,14 @@ const databaseErrorHandler: ErrorRequestHandler = (
 
 // Express error handling middleware requires 4 parameters.
 // The first parameter is the error object.
-// If we remove the "next" parameter, Express would treat this as a regular middleware
+// If we remove the "_" parameter, Express would treat this as a regular middleware
 // instead of an error handler middleware.
 const errorHandler: ErrorRequestHandler = async (
   err: Error | HttpException,
   req: Request,
   res: Response,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  next: NextFunction,
+  _: NextFunction,
 ) => {
   if (err instanceof HttpException && err.errorCode) {
     return res

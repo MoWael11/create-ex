@@ -12,6 +12,12 @@ export const dependencyVersionMap = {
   '@types/node': '^20.14.1',
   rimraf: '^6.0.1',
 
+  // Eslint
+  eslint: '^9.23.0',
+  globals: '^16.0.0',
+  'typescript-eslint': '^8.29.0',
+  '@typescript-eslint/parser': '^8.29.0',
+
   // Prisma
   prisma: '^6.5.0',
   '@prisma/client': '^6.5.0',

@@ -1,10 +1,11 @@
-import { prismaInstaller } from './prisma.js';
 import { type PackageManager } from '@/utils/getUserPkgManager.js';
+import { eslintInstaller } from './eslint.js';
+import { prismaInstaller } from './prisma.js';
 import { typescriptInstaller } from './typescript.js';
 
 // Turning this into a const allows the list to be iterated over for programmatically creating prompt options
 // Should increase extensibility in the future
-export const availablePackages = ['prisma', 'typescript'] as const;
+export const availablePackages = ['prisma', 'typescript', 'eslint'] as const;
 export type AvailablePackages = (typeof availablePackages)[number];
 
 export const databaseProviders = [
@@ -45,5 +46,9 @@ export const buildPkgInstallerMap = (
   prisma: {
     inUse: packages.includes('prisma'),
     installer: prismaInstaller,
+  },
+  eslint: {
+    inUse: packages.includes('eslint'),
+    installer: eslintInstaller,
   },
 });

@@ -31,7 +31,7 @@ interface CliResults {
 
 const defaultOptions: CliResults = {
   appName: DEFAULT_APP_NAME,
-  packages: ['prisma', 'typescript'],
+  packages: ['prisma', 'typescript', 'eslint'],
   databaseProvider: 'postgres',
   flags: {
     noGit: false,
@@ -136,6 +136,12 @@ export const runCli = async (): Promise<CliResults> => {
             initialValue: 'sqlite',
           });
         },
+        eslint: () => {
+          return p.confirm({
+            message: 'Would you like to use ESLint for linting?',
+            initialValue: true,
+          });
+        },
         ...(!cliResults.flags.noGit && {
           git: () => {
             return p.confirm({
@@ -174,6 +180,7 @@ export const runCli = async (): Promise<CliResults> => {
     const packages: AvailablePackages[] = [];
     if (project.language === 'typescript') packages.push('typescript');
     if (project.database === 'prisma') packages.push('prisma');
+    if (project.eslint) packages.push('eslint');
 
     return {
       appName: project.name ?? cliResults.appName,

@@ -1,6 +1,6 @@
 {
   "name": "create-ex",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Create express app with ex cli",
   "license": "MIT",
   "main": "index.js",
@@ -28,7 +28,9 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rimraf dist",
+    "prebuild": "pnpm lint && pnpm clean",
     "start": "node dist/index.js",
+    "lint": "eslint src/**/*.ts",
     "pub:beta": "pnpm build && npm publish --tag beta",
     "pub:next": "pnpm build && npm publish --tag next",
     "pub:release": "pnpm build && npm publish"
@@ -62,9 +64,13 @@
     "@prisma/adapter-planetscale": "^6.4.1",
     "@prisma/client": "^6.4.1",
     "@types/fs-extra": "^11.0.4",
+    "@typescript-eslint/parser": "^8.29.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
     "rimraf": "^6.0.1",
     "tsup": "^8.4.0",
     "type-fest": "^4.35.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.29.0"
   }
 }

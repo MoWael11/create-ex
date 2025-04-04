@@ -6,7 +6,8 @@ const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     if (
       (origin && allowedOrigins.indexOf(origin) !== -1) ||
-      (!origin && process.env.NODE_ENV !== 'production')
+      ((!origin || allowedOrigins.includes('*')) &&
+        process.env.NODE_ENV !== 'production')
     ) {
       callback(null, true);
     } else {

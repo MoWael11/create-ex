@@ -2,10 +2,16 @@ import { type PackageManager } from '@/utils/getUserPkgManager.js';
 import { eslintInstaller } from './eslint.js';
 import { prismaInstaller } from './prisma.js';
 import { typescriptInstaller } from './typescript.js';
+import { socketIOInstaller } from './socket-io.js';
 
 // Turning this into a const allows the list to be iterated over for programmatically creating prompt options
 // Should increase extensibility in the future
-export const availablePackages = ['prisma', 'typescript', 'eslint'] as const;
+export const availablePackages = [
+  'typescript',
+  'socket-io',
+  'prisma',
+  'eslint',
+] as const;
 export type AvailablePackages = (typeof availablePackages)[number];
 
 export const databaseProviders = [
@@ -42,6 +48,10 @@ export const buildPkgInstallerMap = (
   typescript: {
     inUse: packages.includes('typescript'),
     installer: typescriptInstaller,
+  },
+  'socket-io': {
+    inUse: packages.includes('socket-io'),
+    installer: socketIOInstaller,
   },
   prisma: {
     inUse: packages.includes('prisma'),

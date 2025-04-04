@@ -18,6 +18,9 @@ export const dependencyVersionMap = {
   'typescript-eslint': '^8.29.0',
   '@typescript-eslint/parser': '^8.29.0',
 
+  // Socket.IO
+  'socket.io': '^4.8.1',
+
   // Prisma
   prisma: '^6.5.0',
   '@prisma/client': '^6.5.0',

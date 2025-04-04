@@ -27,10 +27,16 @@ export const selectIndexFile = ({
   );
 
   const usingDb = packages.prisma.inUse;
+  const usingSocketIO = packages['socket-io'].inUse;
+
   let indexFile = `base.${ext}`;
 
-  if (usingDb) {
+  if (usingDb && usingSocketIO) {
+    indexFile = `with-db-socket-io.${ext}`;
+  } else if (usingDb) {
     indexFile = `with-db.${ext}`;
+  } else if (usingSocketIO) {
+    indexFile = `with-socket-io.${ext}`;
   }
 
   const indexSrc = path.join(IndexFileDir, indexFile);
@@ -99,7 +105,7 @@ export const selectFiles = (
     const files = fs.readdirSync(sourceDir);
 
     const destDir = path.join(projectDir, `src/${folder}`);
-    fs.mkdirSync(destDir, { recursive: true });
+    fs.mkdirSync(destDir);
 
     for (const file of files) {
       const fileSrc = path.join(sourceDir, file);

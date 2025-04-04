@@ -112,6 +112,16 @@ export const runCli = async (): Promise<CliResults> => {
             initialValue: 'typescript',
           });
         },
+        socketIO: () => {
+          return p.select({
+            message: 'Would you like to use Socket.IO?',
+            options: [
+              { value: 'yes', label: 'Yes' },
+              { value: 'no', label: 'No' },
+            ],
+            initialValue: 'no',
+          });
+        },
         database: () => {
           return p.select({
             message: 'What database ORM would you like to use?',
@@ -179,6 +189,7 @@ export const runCli = async (): Promise<CliResults> => {
 
     const packages: AvailablePackages[] = [];
     if (project.language === 'typescript') packages.push('typescript');
+    if (project.socketIO === 'yes') packages.push('socket-io');
     if (project.database === 'prisma') packages.push('prisma');
     if (project.eslint) packages.push('eslint');
 

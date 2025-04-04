@@ -1,7 +1,5 @@
 // Returns a static array of posts for demonstration purposes.
 export const getAllPosts = async () => {
-  await new Promise((r) => setTimeout(r, 3000));
-
   return [
     {
       id: 1,

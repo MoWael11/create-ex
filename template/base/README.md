@@ -6,12 +6,14 @@ This project was generated using **Create Ex**, a powerful TypeScript-based CLI 
 
 - **TypeScript:** Built entirely with TypeScript for better developer experience, type safety, and enhanced code quality
 - **Modular API Structure:** Routes, controllers, services, helpers, and mappers
+- **Optional Web Socket Integration:** Real-time communication using Socket.IO with TypeScript support and modular event handling
 - **Optional Database Integration:** Optional Prisma support with multiple database providers:
   - [SQLite](https://www.sqlite.org)
   - [MySQL](https://www.mysql.com)
   - [Planetscale](https://planetscale.com)
   - [PostgreSQL](https://www.postgresql.org)
   - [MongoDB](https://www.mongodb.com)
+- **Option Eslint Integration**
 - **Automated Setup:** Initialize Git, install dependencies, and configure project settings effortlessly
 
 ## Project Structure
@@ -36,11 +38,13 @@ Now that you have your project up and running, here are a few ideas to further e
 - _Integrate Middleware_: Customize or add middleware as your application requirements evolve.
 - _Expand Your Database Models_: If using Prisma, update your Prisma schema and generate new models to support additional data entities.
 
-For more details on how to work with Express and Prisma, check out these resources:
+For more details on how to work with Express and the other tools, check out these resources:
 
 - [Express](https://expressjs.com)
+- [Socket.IO](https://socket.io)
 - [Prisma](https://www.prisma.io)
 - [Typescript](https://www.typescriptlang.org)
+- [ESLint](https://eslint.org)
 
 ## Contributing
 

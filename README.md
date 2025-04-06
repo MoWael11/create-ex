@@ -1,97 +1,72 @@
 <p align="center">
-  <img src="./ex-logo.png" width="130" alt="Create Ex Logo">
+  <img src="./ex-logo.png" alt="Create Express App Logo" width="150">
 </p>
 
-<h1 align="center">create-ex</h1>
+<h1 align="center">Create Ex</h1>
 
 <p align="center">
-  A powerful TypeScript-based CLI tool to bootstrap a modular Express API application.
-</p>
-
-<p align="center">
-  <code>npm create ex@latest</code>
+  Interactive CLI tool to bootstrap a modular typesafe Express API application.
 </p>
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
 - [Community](#community)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
 
-Create Ex is an interactive CLI tool that eliminates the tedious setup of an Express API. Whether you need a minimal scaffold or an advanced project with database integration using Prisma, this tool has you covered.
+`create-ex` is designed to kickstart your Express projects with best practices built in. It consists of:
 
-## Features
+- **TypeScript**
+- **Modular Structure:** Clear separation of routes, controllers, services, and more.
+- **Optional Integrations:** Choose from Prisma (with multiple database support), Socket.IO, ESLint, and more.
+- **Automated Setup:** Quickly initialize Git, install dependencies, and get started.
 
-- **TypeScript:** Entirely built in TypeScript for robust type safety
-- **Modular API Structure:** Clean separation of routes, controllers, services, helpers, and mappers
-- **Database Integration:** Optional Prisma support with:
-  - [SQLite](https://www.sqlite.org)
-  - [MySQL](https://www.mysql.com)
-  - [Planetscale](https://planetscale.com)
-  - [PostgreSQL](https://www.postgresql.org)
-  - [MongoDB](https://www.mongodb.com)
-- **Automated Setup:** Automatically initializes Git, installs dependencies, and configures your project
+It's a CLI tool to streamline the setup of a modular Express API application. Every component is optional, and the final template is generated based on your specific needs.
+We provide our recommendations for best practices, but ultimately, the decisions are yours.
 
-## Quick Start
+## Getting Started
 
-### Installation
+To create your new Express project, simply run one of these commands:
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/MoWael11/create-ex.git
-   cd create-ex
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Usage
-
-Run the CLI tool:
+### npm
 
 ```bash
-npm run start
+  npx create-ex@latest
 ```
 
-Follow the interactive prompts to:
-
-- Choose your API template (base or with-db)
-- Select a database provider (if applicable)
-
-## Project Structure
+### yarn
 
 ```bash
-
-/src
-├── cli # CLI entry point
-├── helpers # Utility functions
-├── installers # Integrations like Prisma
-└── utils # Various helper utilities
-
-/template
-├── base # Minimal API template
-└── extras # API template with optional database support
+  yarn create ex
 ```
+
+### pnpm
+
+```bash
+  pnpm create ex@latest
+```
+
+### bun
+
+```bash
+  bun create ex@latest
+```
+
+Follow the interactive prompts to choose your preferred boilerplate
 
 ## Community
 
-Need help or want to share your ideas?
+We believe in building a supportive ecosystem. If you have questions or need help:
 
-- Open an issue on GitHub
-- Join our Discord
+- [Open an issue](https://github.com/MoWael11/create-ex/issues/new) on our repository.
 
 ## Contributing
 
-We welcome contributions! See our [CONTRIBUTING.md](https://github.com/MoWael11/create-ex/blob/main/CONTRIBUTING.md) for more details on how to get started.
+We welcome contributions to improve Create Express App! Please see our [CONTRIBUTING.md](https://github.com/MoWael11/create-ex/blob/main/CONTRIBUTING.md) for more details on how to get started.
 
 ## License
 

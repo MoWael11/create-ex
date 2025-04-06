@@ -1,28 +1,41 @@
 # Contributing to Create Ex
 
-We welcome contributions to improve the project and make the developer experience even better! Below are our guidelines for contributing.
+Thank you for your interest in contributing to Create Ex! We welcome contributions that help improve our CLI tool and enhance the developer experience. Whether you're fixing a bug, suggesting a new feature, or refining our documentation, your input is highly appreciated.
 
 ## How to Contribute
 
 ### Reporting Issues
 
-- **Before opening a new issue**, please search [existing issues](https://github.com/MoWael11/create-ex/issues) to see if your problem or suggestion has already been discussed.
-- When reporting an issue, include:
+- **Before opening a new issue:**  
+  Please search [existing issues](https://github.com/MoWael11/create-ex/issues) to see if your problem or suggestion has already been discussed.
+- **When reporting an issue, please include:**
   - A clear description of the problem or enhancement.
   - Steps to reproduce the issue, if applicable.
-  - Your environment details (Node.js version, package manager, OS, etc.).
+  - Environment details (Node.js version, package manager, OS, etc.).
   - Any relevant error messages or logs.
+- **Use the provided issue templates:**  
+  You can choose between our bug report or feature request templates in the [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) folder.
 
 ### Submitting Pull Requests
 
-1. **Fork the repository** and create your branch from `main`.
-2. **Follow our coding conventions**:
-   - Keep code modular. Follow the established patterns for routes, controllers, services, helpers, and mappers.
-   - Write clear, concise commit messages.
-3. **Submit your pull request (PR)**:
-   - Provide a clear description of what your PR does.
-   - Link any related issues in the description.
-   - Request reviews from the maintainers.
+1. **Fork the Repository & Create a Branch:**
+
+   - Fork the repository and create your branch from `main`.
+
+2. **Follow the Project Guidelines:**
+
+   - Keep your code modular. Follow our established patterns.
+   - Adhere to our TypeScript style: use strong typing and interfaces where appropriate.
+   - Write clear, concise commit messages that describe your changes.
+   - Ensure your changes are well documented. If your PR affects CLI usage or project structure, update the relevant documentation.
+
+3. **Run Tests and Linting:**
+
+   - Make sure that your code passes all differe template creations and conforms to our ESLint and Prettier rules before submitting a PR.
+
+4. **Create a Pull Request (PR):**
+   - Provide a clear description of your changes and reference any related issues.
+   - Follow the [PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md) for guidance.
 
 ## Code Style Guidelines
 
@@ -34,6 +47,10 @@ We welcome contributions to improve the project and make the developer experienc
 
 - **Branch Naming**: Use descriptive branch names such as `feature/new-endpoint`, `fix/issue-123`, or `refactor/module-structure`.
 - **Releases**: We use semantic versioning. Please make sure your changes are backward compatible or document breaking changes in the PR description.
+
+## Code of Conduct
+
+Please review our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) to understand the standards of behavior expected from all contributors. We strive to create a welcoming and inclusive community for everyone.
 
 ## Getting Help
 

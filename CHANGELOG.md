@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.2
+
+### Changed
+
+- [`64aeeadf44c627be6b3d903ac5cc8af72812d2b9`](https://github.com/MoWael11/create-ex/commit/64aeeadf44c627be6b3d903ac5cc8af72812d2b9) - updated readme file
+
 ## 1.3.1
 
 ### Changed

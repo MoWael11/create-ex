@@ -7,11 +7,7 @@ export const registerSampleListeners = (socket: Socket) => {
 
   socket.on('sample', (message: string) => emitMessage('message', message));
 
-  socket.on('sample:update', (message: string) =>
-    emitMessage('sample:update', message),
-  );
+  socket.on('sample:update', (message: string) => emitMessage('sample:update', message));
 
-  socket.on('sample:delete', (message: string) =>
-    emitMessage('sample:delete', message),
-  );
+  socket.on('sample:delete', (message: string) => emitMessage('sample:delete', message));
 };

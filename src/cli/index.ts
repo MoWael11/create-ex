@@ -4,10 +4,7 @@ import { Command } from 'commander';
 
 import { CREATE_EX, DEFAULT_APP_NAME } from '@/consts.js';
 
-import {
-  type AvailablePackages,
-  type DatabaseProvider,
-} from '@/installers/index.js';
+import { type AvailablePackages, type DatabaseProvider } from '@/installers/index.js';
 import { getVersion } from '@/utils/getExVersion.js';
 import { getUserPkgManager } from '@/utils/getUserPkgManager.js';
 import { IsTTYError } from '@/utils/isTTYError.js';
@@ -47,32 +44,12 @@ export const runCli = async (): Promise<CliResults> => {
   const program = new Command()
     .name(CREATE_EX)
     .description('A CLI for creating express app')
-    .argument(
-      '[dir]',
-      'The name of the application, as well as the name of the directory to create',
-    )
-    .option(
-      '--noGit',
-      'Explicitly tell the CLI to not initialize a new git repo in the project',
-      false,
-    )
-    .option(
-      '--noInstall',
-      "Explicitly tell the CLI to not run the package manager's install command",
-      false,
-    )
-    .option(
-      '-y, --default',
-      'Bypass the CLI and use all default options to bootstrap a new ex-app',
-      false,
-    )
+    .argument('[dir]', 'The name of the application, as well as the name of the directory to create')
+    .option('--noGit', 'Explicitly tell the CLI to not initialize a new git repo in the project', false)
+    .option('--noInstall', "Explicitly tell the CLI to not run the package manager's install command", false)
+    .option('-y, --default', 'Bypass the CLI and use all default options to bootstrap a new ex-app', false)
     .version(getVersion(), '-v, --version', 'Display the version number')
-    .addHelpText(
-      'afterAll',
-      `\n The ex stack was inspired by ${chalk
-        .hex('#E8DCFF')
-        .bold('@MoWael11')}`,
-    )
+    .addHelpText('afterAll', `\n The ex stack was inspired by ${chalk.hex('#E8DCFF').bold('@MoWael11')}`)
     .parse(process.argv);
 
   // Needs to be separated outside the if statement to correctly infer the type as string | undefined
@@ -155,8 +132,7 @@ export const runCli = async (): Promise<CliResults> => {
         ...(!cliResults.flags.noGit && {
           git: () => {
             return p.confirm({
-              message:
-                'Should we initialize a Git repository and stage the changes?',
+              message: 'Should we initialize a Git repository and stage the changes?',
               initialValue: !defaultOptions.flags.noGit,
             });
           },
@@ -164,9 +140,7 @@ export const runCli = async (): Promise<CliResults> => {
         ...(!cliResults.flags.noInstall && {
           install: () => {
             return p.confirm({
-              message:
-                `Should we run '${pkgManager}` +
-                (pkgManager === 'yarn' ? `'?` : ` install' for you?`),
+              message: `Should we run '${pkgManager}` + (pkgManager === 'yarn' ? `'?` : ` install' for you?`),
               initialValue: !defaultOptions.flags.noInstall,
             });
           },
@@ -196,8 +170,7 @@ export const runCli = async (): Promise<CliResults> => {
     return {
       appName: project.name ?? cliResults.appName,
       packages,
-      databaseProvider:
-        (project.databaseProvider as DatabaseProvider) || 'sqlite',
+      databaseProvider: (project.databaseProvider as DatabaseProvider) || 'sqlite',
       flags: {
         ...cliResults.flags,
         noGit: !project.git || cliResults.flags.noGit,
@@ -222,9 +195,7 @@ export const runCli = async (): Promise<CliResults> => {
         process.exit(0);
       }
 
-      logger.info(
-        `Bootstrapping a default express app in ./${cliResults.appName}`,
-      );
+      logger.info(`Bootstrapping a default express app in ./${cliResults.appName}`);
     } else {
       throw err;
     }

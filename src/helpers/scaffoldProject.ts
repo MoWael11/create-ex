@@ -25,12 +25,7 @@ export const scaffoldProject = async ({
 
   if (fs.existsSync(projectDir)) {
     if (fs.readdirSync(projectDir).length === 0) {
-      if (projectName !== '.')
-        spinner.info(
-          `${chalk.cyan.bold(
-            projectName,
-          )} exists but is empty, continuing...\n`,
-        );
+      if (projectName !== '.') spinner.info(`${chalk.cyan.bold(projectName)} exists but is empty, continuing...\n`);
     } else {
       spinner.stopAndPersist();
       const overwriteDir = await p.select({
@@ -61,9 +56,7 @@ export const scaffoldProject = async ({
 
       const confirmOverwriteDir = await p.confirm({
         message: `Are you sure you want to ${
-          overwriteDir === 'clear'
-            ? 'clear the directory'
-            : 'overwrite conflicting files'
+          overwriteDir === 'clear' ? 'clear the directory' : 'overwrite conflicting files'
         }?`,
         initialValue: false,
       });
@@ -74,9 +67,7 @@ export const scaffoldProject = async ({
       }
 
       if (overwriteDir === 'clear') {
-        spinner.info(
-          `Emptying ${chalk.cyan.bold(projectName)} and creating ex app..\n`,
-        );
+        spinner.info(`Emptying ${chalk.cyan.bold(projectName)} and creating ex app..\n`);
         fs.emptyDirSync(projectDir);
       }
     }
@@ -85,15 +76,9 @@ export const scaffoldProject = async ({
   spinner.start();
   fs.copySync(srcDir, projectDir);
 
-  fs.renameSync(
-    path.join(projectDir, '_gitignore'),
-    path.join(projectDir, '.gitignore'),
-  );
+  fs.renameSync(path.join(projectDir, '_gitignore'), path.join(projectDir, '.gitignore'));
 
-  const scaffoldedName =
-    projectName === '.' ? 'App' : chalk.cyan.bold(projectName);
+  const scaffoldedName = projectName === '.' ? 'App' : chalk.cyan.bold(projectName);
 
-  spinner.succeed(
-    `${scaffoldedName} ${chalk.green('scaffolded successfully!\n')}`,
-  );
+  spinner.succeed(`${scaffoldedName} ${chalk.green('scaffolded successfully!\n')}`);
 };

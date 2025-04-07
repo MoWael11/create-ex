@@ -28,12 +28,14 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rimraf dist",
+    "format": "prettier --write --ignore-unknown **/*.{ts,md}",
     "prebuild": "pnpm clean",
     "start": "node dist/index.js",
     "lint": "eslint src/**/*.ts",
     "pub:beta": "pnpm build && npm publish --tag beta",
     "pub:next": "pnpm build && npm publish --tag next",
-    "pub:release": "pnpm build && npm publish"
+    "pub:release": "pnpm build && npm publish",
+    "prepare": "husky"
   },
   "keywords": [
     "create-ex",
@@ -67,6 +69,9 @@
     "@typescript-eslint/parser": "^8.29.0",
     "eslint": "^9.23.0",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "tsup": "^8.4.0",
     "type-fest": "^4.35.0",

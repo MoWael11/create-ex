@@ -6,11 +6,7 @@ import { PKG_ROOT } from '@/consts.js';
 import { type Installer } from '@/installers/index.js';
 import { addPackageDependency } from '@/utils/addPackageDependency.js';
 
-export const prismaInstaller: Installer = ({
-  projectDir,
-  databaseProvider,
-  packages,
-}) => {
+export const prismaInstaller: Installer = ({ projectDir, databaseProvider, packages }) => {
   addPackageDependency({
     projectDir,
     dependencies: ['prisma'],
@@ -39,11 +35,7 @@ export const prismaInstaller: Installer = ({
     extrasDir,
     'prisma/schema',
     `${
-      databaseProvider === 'planetscale'
-        ? 'planetscale'
-        : databaseProvider === 'mongodb'
-        ? 'mongodb'
-        : 'base'
+      databaseProvider === 'planetscale' ? 'planetscale' : databaseProvider === 'mongodb' ? 'mongodb' : 'base'
     }.prisma`,
   );
 
@@ -70,9 +62,7 @@ export const prismaInstaller: Installer = ({
   const clientSrc = path.join(
     extrasDir,
     `src/${subFolder}/db`,
-    databaseProvider === 'planetscale'
-      ? `db-prisma-planetscale.${ext}`
-      : `db-prisma.${ext}`,
+    databaseProvider === 'planetscale' ? `db-prisma-planetscale.${ext}` : `db-prisma.${ext}`,
   );
 
   const clientDest = path.join(projectDir, `src/db/prisma.${ext}`);

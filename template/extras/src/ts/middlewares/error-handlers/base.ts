@@ -14,9 +14,7 @@ const errorHandler: ErrorRequestHandler = async (
   _: NextFunction,
 ) => {
   if (err instanceof HttpException && err.errorCode) {
-    return res
-      .status(err.errorCode)
-      .json({ message: err.message, status: err.errorCode });
+    return res.status(err.errorCode).json({ message: err.message, status: err.errorCode });
   }
 
   const IP = (req?.headers && req?.headers['x-forwarded-for']) || req.ip;
@@ -29,9 +27,7 @@ const errorHandler: ErrorRequestHandler = async (
   if (err instanceof SyntaxError && 'body' in err)
     return res.status(422).json({ error: 'Invalid JSON syntax', status: 422 });
 
-  return res
-    .status(500)
-    .json({ message: 'Internal server error', status: 500 });
+  return res.status(500).json({ message: 'Internal server error', status: 500 });
 };
 
 export { errorHandler };

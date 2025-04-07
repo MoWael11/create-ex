@@ -11,10 +11,7 @@ export const logNextSteps = async ({
   packages,
   noInstall,
   projectDir,
-}: Pick<
-  InstallerOptions,
-  'projectName' | 'packages' | 'noInstall' | 'projectDir'
->) => {
+}: Pick<InstallerOptions, 'projectName' | 'packages' | 'noInstall' | 'projectDir'>) => {
   const pkgManager = getUserPkgManager();
 
   logger.info('Next steps:');

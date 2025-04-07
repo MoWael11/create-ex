@@ -9,10 +9,7 @@ import routes from '@/routes/routes';
 import http from 'http';
 import requestLogger from '@/middlewares/request-logger';
 import { initializeSocket } from './socket';
-import {
-  errorHandler,
-  databaseErrorHandler,
-} from '@/middlewares/error-handlers';
+import { errorHandler, databaseErrorHandler } from '@/middlewares/error-handlers';
 
 const app = express();
 const server = http.createServer(app);

@@ -2,15 +2,8 @@ import path from 'path';
 
 import { installPackages } from '@/helpers/installPackages.js';
 import { scaffoldProject } from '@/helpers/scaffoldProject.js';
-import {
-  selectEnvFile,
-  selectFiles,
-  selectIndexFile,
-} from '@/helpers/selectBoilerplate.js';
-import {
-  type DatabaseProvider,
-  type PkgInstallerMap,
-} from '@/installers/index.js';
+import { selectEnvFile, selectFiles, selectIndexFile } from '@/helpers/selectBoilerplate.js';
+import { type DatabaseProvider, type PkgInstallerMap } from '@/installers/index.js';
 import { getUserPkgManager } from '@/utils/getUserPkgManager.js';
 
 interface CreateProjectOptions {

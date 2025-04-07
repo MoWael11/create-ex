@@ -16,10 +16,7 @@ export const socketIOInstaller: Installer = ({ projectDir, packages }) => {
 
   const extrasDir = path.join(PKG_ROOT, 'template/extras');
 
-  const socketIOSrc = path.join(
-    extrasDir,
-    `src/${usingTs ? 'ts' : 'js'}/socket`,
-  );
+  const socketIOSrc = path.join(extrasDir, `src/${usingTs ? 'ts' : 'js'}/socket`);
 
   const socketIODest = path.join(projectDir, 'src/socket');
 

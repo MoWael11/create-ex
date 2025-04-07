@@ -6,21 +6,10 @@ import { socketIOInstaller } from './socket-io.js';
 
 // Turning this into a const allows the list to be iterated over for programmatically creating prompt options
 // Should increase extensibility in the future
-export const availablePackages = [
-  'typescript',
-  'socket-io',
-  'prisma',
-  'eslint',
-] as const;
+export const availablePackages = ['typescript', 'socket-io', 'prisma', 'eslint'] as const;
 export type AvailablePackages = (typeof availablePackages)[number];
 
-export const databaseProviders = [
-  'mysql',
-  'postgres',
-  'sqlite',
-  'planetscale',
-  'mongodb',
-] as const;
+export const databaseProviders = ['mysql', 'postgres', 'sqlite', 'planetscale', 'mongodb'] as const;
 export type DatabaseProvider = (typeof databaseProviders)[number];
 
 export interface InstallerOptions {
@@ -42,9 +31,7 @@ export type PkgInstallerMap = {
   };
 };
 
-export const buildPkgInstallerMap = (
-  packages: AvailablePackages[],
-): PkgInstallerMap => ({
+export const buildPkgInstallerMap = (packages: AvailablePackages[]): PkgInstallerMap => ({
   typescript: {
     inUse: packages.includes('typescript'),
     installer: typescriptInstaller,

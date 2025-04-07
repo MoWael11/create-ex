@@ -2,10 +2,7 @@ import chalk from 'chalk';
 import { execa, type StdioOption } from 'execa';
 import ora, { type Ora } from 'ora';
 
-import {
-  getUserPkgManager,
-  type PackageManager,
-} from '@/utils/getUserPkgManager.js';
+import { getUserPkgManager, type PackageManager } from '@/utils/getUserPkgManager.js';
 import { logger } from '@/utils/logger.js';
 
 const execWithSpinner = async (
@@ -34,10 +31,7 @@ const execWithSpinner = async (
   return spinner;
 };
 
-const runInstallCommand = async (
-  pkgManager: PackageManager,
-  projectDir: string,
-): Promise<Ora | null> => {
+const runInstallCommand = async (pkgManager: PackageManager, projectDir: string): Promise<Ora | null> => {
   switch (pkgManager) {
     // When using npm, inherit the stderr stream so that the progress bar is shown
     case 'npm':
@@ -54,9 +48,7 @@ const runInstallCommand = async (
           const text = data.toString();
 
           if (text.includes('Progress')) {
-            spinner.text = text.includes('|')
-              ? text.split(' | ')[1] ?? ''
-              : text;
+            spinner.text = text.includes('|') ? (text.split(' | ')[1] ?? '') : text;
           }
         },
       });
@@ -72,11 +64,7 @@ const runInstallCommand = async (
   }
 };
 
-export const installDependencies = async ({
-  projectDir,
-}: {
-  projectDir: string;
-}) => {
+export const installDependencies = async ({ projectDir }: { projectDir: string }) => {
   logger.info('Installing dependencies...');
   const pkgManager = getUserPkgManager();
 
@@ -84,7 +72,5 @@ export const installDependencies = async ({
 
   // If the spinner was used to show the progress, use succeed method on it
   // If not, use the succeed on a new spinner
-  (installSpinner ?? ora()).succeed(
-    chalk.green('Successfully installed dependencies!\n'),
-  );
+  (installSpinner ?? ora()).succeed(chalk.green('Successfully installed dependencies!\n'));
 };

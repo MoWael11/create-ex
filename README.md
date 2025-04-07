@@ -12,6 +12,9 @@
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
+  - [Interactive Mode](#interactive-mode)
+  - [Non-interactive Mode](#non-interactive-mode)
+  - [Cli Options](#cli-options)
 - [Community](#community)
 - [Contributing](#contributing)
 - [License](#license)
@@ -30,33 +33,49 @@ We provide our recommendations for best practices, but ultimately, the decisions
 
 ## Getting Started
 
-To create your new Express project, simply run one of these commands:
+### Interactive Mode
 
-### npm
-
-```bash
-  npx create-ex@latest
-```
-
-### yarn
+The easiest way to get started is by using the interactive CLI. Run one of the commands below and follow the prompts to configure your new Express project:
 
 ```bash
-  yarn create ex
+# npm
+npx create-ex@latest
+
+# yarn
+yarn create ex
+
+# pnpm
+pnpm create ex@latest
+
+# bun
+bun create ex@latest
 ```
 
-### pnpm
+### Non-interactive Mode
+
+If you prefer to create a new project without interactive prompts, you can pass command-line options. For example, run:
 
 ```bash
-  pnpm create ex@latest
+npx create-ex my-app --noGit --noInstall -y
 ```
 
-### bun
+### Cli Options
+
+When you run `npx create-ex --help`, you'll see a summary of available options:
 
 ```bash
-  bun create ex@latest
-```
+Usage: create-ex [options] [dir]
 
-Follow the interactive prompts to choose your preferred boilerplate
+Arguments:
+  dir            The name of the application, as well as the name of the directory to create
+
+Options:
+  --noGit        Explicitly tell the CLI to not initialize a new Git repo in the project
+  --noInstall    Explicitly tell the CLI to not run the package manager install command
+  -y, --default  Bypass the CLI and use all default options to bootstrap a new ex-app
+  -v, --version  Display the version number
+  -h, --help     display help for command
+```
 
 ## Community
 

@@ -12,6 +12,7 @@ export const typescriptInstaller: Installer = ({ projectDir }) => {
     devMode: true,
     dependencies: [
       'tsup',
+      'tslib',
       'typescript',
       'rimraf',
       '@types/node',

@@ -11,6 +11,7 @@ export const dependencyVersionMap = {
   '@types/express': '^4.17.21',
   '@types/node': '^20.14.1',
   rimraf: '^6.0.1',
+  tslib: '^2.8.1',
 
   // Eslint
   eslint: '^9.23.0',

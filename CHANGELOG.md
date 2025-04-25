@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.3
+
+- [`10b8970817122c045d438d7e390f37b7e4d2be41`](https://github.com/MoWael11/create-ex/commit/10b8970817122c045d438d7e390f37b7e4d2be41) - fixed error of aliases for imported modules
+
 ## 1.3.2
 
 ### Changed

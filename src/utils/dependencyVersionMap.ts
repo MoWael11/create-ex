@@ -18,6 +18,7 @@ export const dependencyVersionMap = {
   globals: '^16.0.0',
   'typescript-eslint': '^8.29.0',
   '@typescript-eslint/parser': '^8.29.0',
+  jiti: '^2.4.2',
 
   // Socket.IO
   'socket.io': '^4.8.1',

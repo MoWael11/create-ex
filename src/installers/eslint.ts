@@ -15,14 +15,14 @@ export const eslintInstaller: Installer = ({ projectDir, packages, pkgManager })
     dependencies: [
       'eslint',
       'globals',
-      ...(usingTs ? (['typescript-eslint', '@typescript-eslint/parser'] as const) : []),
+      ...(usingTs ? (['typescript-eslint', '@typescript-eslint/parser', 'jiti'] as const) : []),
     ],
   });
 
   const extrasDir = path.join(PKG_ROOT, 'template/extras');
 
-  const eslintSrc = path.join(extrasDir, `config/eslint/${usingTs ? 'ts' : 'js'}.config.js`);
-  const eslintDest = path.join(projectDir, 'eslint.config.js');
+  const eslintSrc = path.join(extrasDir, `config/eslint/config.${usingTs ? 'ts' : 'js'}`);
+  const eslintDest = path.join(projectDir, `eslint.config.${usingTs ? 'ts' : 'js'}`);
 
   const pkgJsonPath = path.join(projectDir, 'package.json');
   const pkgJson = fs.readJsonSync(pkgJsonPath) as PackageJson;

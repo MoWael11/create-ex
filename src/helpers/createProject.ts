@@ -49,17 +49,7 @@ export const createProject = async ({
   selectEnvFile({ packages, projectDir, databaseProvider });
 
   // Copy additional project structure folders
-  const folders = [
-    'controllers',
-    'mappers',
-    'models',
-    'routes',
-    'services',
-    'utils',
-    'config',
-    'middlewares',
-    'helpers',
-  ];
+  const folders = ['controllers', 'mappers', 'models', 'routes', 'services', 'utils', 'config', 'middlewares'];
   selectFiles({ packages, projectDir }, folders);
 
   return projectDir;

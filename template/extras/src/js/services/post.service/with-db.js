@@ -1,8 +1,8 @@
-import { getAllPosts } from '@/helpers/post.helper';
+import { db } from '@/db/prisma';
 import mappedPost from '@/mappers/post.mapper';
 
 export const getPosts = async () => {
-  const posts = await getAllPosts();
+  const posts = await db.post.findMany();
 
   return posts.map((post) => mappedPost(post));
 };

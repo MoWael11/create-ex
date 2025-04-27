@@ -1,6 +1,5 @@
-/** @type {import("eslint").Linter.Config} */
-const globals = require('globals');
-const { defineConfig } = require('eslint/config');
+import globals from 'globals';
+import { defineConfig } from 'eslint/config';
 
 module.exports = defineConfig([
   {

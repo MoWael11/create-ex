@@ -25,6 +25,9 @@ pids
 *.pid
 *.seed
 
+# vscode
+.vscode
+
 # Testing
 coverage
 .nyc_output

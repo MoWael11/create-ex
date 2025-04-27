@@ -3,7 +3,7 @@ const HttpException = require('@/models/http-exception.model');
 const { DrizzleError, TransactionRollbackError } = require('drizzle-orm');
 const { PgQueryError } = require('drizzle-orm/pg-core');
 
-export const databaseErrorHandler = (err, req, res, next) => {
+const databaseErrorHandler = (err, req, res, next) => {
   if (err instanceof DrizzleError || err instanceof TransactionRollbackError || err instanceof PgQueryError) {
     logEvents(
       `${req.method}\t${req.url} => IP\t${
@@ -41,4 +41,4 @@ const errorHandler = async (err, req, res, _) => {
   return res.status(500).json({ message: 'Internal server error', status: 500 });
 };
 
-module.exports = { errorHandler };
+module.exports = { errorHandler, databaseErrorHandler };

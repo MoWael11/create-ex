@@ -1,4 +1,6 @@
-const postMapper = (post) => {
+import { Prisma } from '@prisma/client';
+
+const postMapper = (post: Prisma.Post) => {
   return {
     title: post.title,
     content: post.content,
@@ -7,4 +9,4 @@ const postMapper = (post) => {
   };
 };
 
-module.exports = postMapper;
+export default postMapper;

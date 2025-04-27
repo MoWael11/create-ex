@@ -16,7 +16,7 @@ export const selectIndexFile = ({ projectDir, packages }: SelectBoilerplateProps
 
   const IndexFileDir = path.join(PKG_ROOT, `template/extras/src/${subFolder}/index`);
 
-  const usingDb = packages.prisma.inUse;
+  const usingDb = packages.prisma.inUse || packages.drizzle.inUse;
   const usingSocketIO = packages['socket-io'].inUse;
 
   let indexFile = `base.${ext}`;
@@ -38,14 +38,17 @@ export const selectEnvFile = ({ projectDir, packages, databaseProvider }: Select
   const envFileDir = path.join(PKG_ROOT, 'template/extras/config/env');
   const envDest = path.join(projectDir, '.env');
 
-  const usingDb = packages.prisma.inUse;
+  const usingPrisma = packages.prisma.inUse;
+  const usingDrizzle = packages.drizzle.inUse;
+  const usingDb = usingPrisma || usingDrizzle;
+
   const envFile = usingDb ? '_with-db' : '_base';
   const envSrc = path.join(envFileDir, envFile);
 
   if (usingDb) {
     const databaseUrls = {
-      mysql: 'mysql://<DATABASE_USERNAME>@127.0.0.1:3309/<DATABASE_NAME>',
-      sqlite: 'file:../db/dev.db',
+      mysql: 'mysql://<DATABASE_USERNAME>@127.0.0.1:3306/<DATABASE_NAME>',
+      sqlite: usingPrisma ? 'file:../data/db/dev.db' : 'file:./data/db/dev.db',
       postgres: 'postgresql://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@localhost:5432/<DATABASE_NAME>?schema=public',
       planetscale:
         'mysql://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@aws.connect.psdb.cloud/<DATABASE_NAME>?sslaccept=strict',
@@ -69,7 +72,8 @@ export const selectEnvFile = ({ projectDir, packages, databaseProvider }: Select
  * For subdirectories, it selects the appropriate file (base.ts or with-db.ts) and copies it, to the destination with the folder name as the filename.
  */
 export const selectFiles = ({ projectDir, packages }: SelectBoilerplateProps, folders: string[]) => {
-  const usingDb = packages.prisma.inUse;
+  const usingPrisma = packages.prisma.inUse;
+  const usingDrizzle = packages.drizzle.inUse;
   const usingTS = packages.typescript.inUse;
 
   const subFolder = usingTS ? 'ts' : 'js';
@@ -90,8 +94,10 @@ export const selectFiles = ({ projectDir, packages }: SelectBoilerplateProps, fo
         fs.copyFileSync(fileSrc, fileDest);
       } else if (fs.statSync(fileSrc).isDirectory()) {
         let fileName = `base.${ext}`;
-        if (usingDb) {
-          fileName = `with-db.${ext}`;
+        if (usingPrisma) {
+          fileName = `with-prisma.${ext}`;
+        } else if (usingDrizzle) {
+          fileName = `with-drizzle.${ext}`;
         }
 
         const srcFile = path.join(fileSrc, fileName);

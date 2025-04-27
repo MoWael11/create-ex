@@ -27,7 +27,7 @@ export const logNextSteps = async ({
     }
   }
 
-  if (packages?.prisma.inUse) {
+  if (packages?.prisma.inUse || packages?.drizzle.inUse) {
     if (['npm', 'bun'].includes(pkgManager)) {
       logger.info(
         `  ${pkgManager} run db:push  ${chalk.yellowBright(

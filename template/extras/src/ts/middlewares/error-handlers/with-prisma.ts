@@ -22,7 +22,7 @@ const databaseErrorHandler: ErrorRequestHandler = (
       `${req.method}\t${req.url} => IP\t${
         req.headers['x-forwarded-for'] || req.ip
       }\tUser Agent\t${req.headers['user-agent']}\nError: ${
-        err instanceof PrismaClientKnownRequestError ? err.code : 'Unkown'
+        err instanceof PrismaClientKnownRequestError ? err.code : 'Unknown'
       }\tMessage: ${err.message}`,
       'database-err.log',
     );

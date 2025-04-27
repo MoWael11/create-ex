@@ -23,10 +23,19 @@ export const dependencyVersionMap = {
   // Socket.IO
   'socket.io': '^4.8.1',
 
+  // Drizzle
+  'drizzle-orm': '^0.43.1',
+  'drizzle-kit': '^0.31.0',
+  pg: '^8.15.6',
+  '@types/pg': '^8.11.14',
+  '@libsql/client': '^0.15.4',
+  mysql2: '^3.14.1',
+
   // Prisma
   prisma: '^6.5.0',
   '@prisma/client': '^6.5.0',
   '@prisma/adapter-planetscale': '^6.5.0',
+
   '@planetscale/database': '^1.19.0',
 } as const;
 

@@ -1,23 +1,25 @@
-import mappedPost from '@/mappers/post.mapper';
+const mappedPost = require('@/mappers/post.mapper');
 
-export const getPosts = async () => {
-  // Returns a static array of posts for demonstration purposes
-  const posts = [
+const getPosts = async () => {
+  // Simulate fetching posts from a database
+  const foundPosts = [
     {
       id: 1,
-      name: 'Post 1',
+      title: 'Post 1',
       content: 'Content for post 1',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
       id: 2,
-      name: 'Post 2',
+      title: 'Post 2',
       content: 'Content for post 2',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
   ];
 
-  return posts.map((post) => mappedPost(post));
+  return foundPosts.map((post) => mappedPost(post));
 };
+
+module.exports = { getPosts };

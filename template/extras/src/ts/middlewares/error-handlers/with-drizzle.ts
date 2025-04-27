@@ -1,36 +1,6 @@
-import {
-  PrismaClientKnownRequestError,
-  PrismaClientUnknownRequestError,
-  PrismaClientValidationError,
-} from '@prisma/client/runtime/library';
 import { logEvents } from '@/utils/logger';
-import { ErrorRequestHandler, Request, Response, NextFunction } from 'express';
+import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import HttpException from '@/models/http-exception.model';
-
-const databaseErrorHandler: ErrorRequestHandler = (
-  err: Error | HttpException,
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  if (
-    err instanceof PrismaClientKnownRequestError ||
-    err instanceof PrismaClientValidationError ||
-    err instanceof PrismaClientUnknownRequestError
-  ) {
-    logEvents(
-      `${req.method}\t${req.url} => IP\t${
-        req.headers['x-forwarded-for'] || req.ip
-      }\tUser Agent\t${req.headers['user-agent']}\nError: ${
-        err instanceof PrismaClientKnownRequestError ? err.code : 'Unkown'
-      }\tMessage: ${err.message}`,
-      'database-err.log',
-    );
-
-    return res.status(500).json({ message: 'Internal server error', status: 500 });
-  }
-  next(err);
-};
 
 // Express error handling middleware requires 4 parameters.
 // The first parameter is the error object.
@@ -60,4 +30,4 @@ const errorHandler: ErrorRequestHandler = async (
   return res.status(500).json({ message: 'Internal server error', status: 500 });
 };
 
-export { errorHandler, databaseErrorHandler };
+export { errorHandler };

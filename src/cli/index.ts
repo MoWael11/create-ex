@@ -90,13 +90,9 @@ export const runCli = async (): Promise<CliResults> => {
           });
         },
         socketIO: () => {
-          return p.select({
+          return p.confirm({
             message: 'Would you like to use Socket.IO?',
-            options: [
-              { value: 'yes', label: 'Yes' },
-              { value: 'no', label: 'No' },
-            ],
-            initialValue: 'no',
+            initialValue: false,
           });
         },
         database: () => {
@@ -105,6 +101,7 @@ export const runCli = async (): Promise<CliResults> => {
             options: [
               { value: 'none', label: 'None' },
               { value: 'prisma', label: 'Prisma' },
+              { value: 'drizzle', label: 'Drizzle' },
             ],
             initialValue: 'none',
           });
@@ -117,7 +114,7 @@ export const runCli = async (): Promise<CliResults> => {
               { value: 'sqlite', label: 'SQLite' },
               { value: 'mysql', label: 'MySQL' },
               { value: 'postgres', label: 'PostgreSQL' },
-              { value: 'mongodb', label: 'MongoDB' },
+              ...(results.database === 'prisma' ? [{ value: 'mongodb', label: 'MongoDB' }] : []),
               { value: 'planetscale', label: 'PlanetScale' },
             ],
             initialValue: 'sqlite',
@@ -163,8 +160,9 @@ export const runCli = async (): Promise<CliResults> => {
 
     const packages: AvailablePackages[] = [];
     if (project.language === 'typescript') packages.push('typescript');
-    if (project.socketIO === 'yes') packages.push('socket-io');
     if (project.database === 'prisma') packages.push('prisma');
+    if (project.database === 'drizzle') packages.push('drizzle');
+    if (project.socketIO) packages.push('socket-io');
     if (project.eslint) packages.push('eslint');
 
     return {

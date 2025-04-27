@@ -1,4 +1,6 @@
-const postMapper = (post) => {
+import { SelectPosts } from '@/db/schema';
+
+const postMapper = (post: SelectPosts) => {
   return {
     title: post.title,
     content: post.content,
@@ -7,4 +9,4 @@ const postMapper = (post) => {
   };
 };
 
-module.exports = postMapper;
+export default postMapper;

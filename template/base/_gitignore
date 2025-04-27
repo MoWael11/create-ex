@@ -3,8 +3,8 @@ node_modules
 .pnp
 .pnp.js
 
-# Local db
-db
+# local db
+/data
 
 # Build Outputs
 build

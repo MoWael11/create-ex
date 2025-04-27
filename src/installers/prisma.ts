@@ -61,13 +61,13 @@ export const prismaInstaller: Installer = ({ projectDir, databaseProvider, packa
 
   const clientSrc = path.join(
     extrasDir,
-    `src/${subFolder}/db`,
-    databaseProvider === 'planetscale' ? `db-prisma-planetscale.${ext}` : `db-prisma.${ext}`,
+    `src/${subFolder}/db/prisma-index`,
+    databaseProvider === 'planetscale' ? `with-planetscale.${ext}` : `base.${ext}`,
   );
 
-  const clientDest = path.join(projectDir, `src/db/prisma.${ext}`);
+  const clientDest = path.join(projectDir, `src/db/index.${ext}`);
 
-  // add postinstall and push script to package.json
+  // add postinstall and db scripts to package.json
   const packageJsonPath = path.join(projectDir, 'package.json');
 
   const packageJsonContent = fs.readJSONSync(packageJsonPath) as PackageJson;

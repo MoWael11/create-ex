@@ -1,6 +1,27 @@
 import { logEvents } from '@/utils/logger';
 import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import HttpException from '@/models/http-exception.model';
+import { DrizzleError, TransactionRollbackError } from 'drizzle-orm';
+import { PgQueryError } from 'drizzle-orm/pg-core';
+
+export const databaseErrorHandler: ErrorRequestHandler = (
+  err: Error | HttpException,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  if (err instanceof DrizzleError || err instanceof TransactionRollbackError || err instanceof PgQueryError) {
+    logEvents(
+      `${req.method}\t${req.url} => IP\t${
+        req.headers['x-forwarded-for'] || req.ip
+      }\tUser Agent\t${req.headers['user-agent']}\nError: ${err.code ? err.code : 'Unknown'}\tMessage: ${err.message}`,
+      'database-err.log',
+    );
+
+    return res.status(500).json({ message: 'Internal server error', status: 500 });
+  }
+  next(err);
+};
 
 // Express error handling middleware requires 4 parameters.
 // The first parameter is the error object.

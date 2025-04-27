@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:template/extras/src/ts/services/post.service/with-prisma.ts
 import { db } from '@/db';
-========
-import { db } from '@/db/prisma';
->>>>>>>> main:template/extras/src/js/services/post.service/with-db.js
 import mappedPost from '@/mappers/post.mapper';
 
 export const getPosts = async () => {

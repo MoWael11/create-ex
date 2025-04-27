@@ -16,15 +16,15 @@ export const selectIndexFile = ({ projectDir, packages }: SelectBoilerplateProps
 
   const IndexFileDir = path.join(PKG_ROOT, `template/extras/src/${subFolder}/index`);
 
-  const usingPrisma = packages.prisma.inUse;
+  const usingDb = packages.prisma.inUse || packages.drizzle.inUse;
   const usingSocketIO = packages['socket-io'].inUse;
 
   let indexFile = `base.${ext}`;
 
-  if (usingPrisma && usingSocketIO) {
-    indexFile = `with-prisma-socket-io.${ext}`;
-  } else if (usingPrisma) {
-    indexFile = `with-prisma.${ext}`;
+  if (usingDb && usingSocketIO) {
+    indexFile = `with-db-socket-io.${ext}`;
+  } else if (usingDb) {
+    indexFile = `with-db.${ext}`;
   } else if (usingSocketIO) {
     indexFile = `with-socket-io.${ext}`;
   }

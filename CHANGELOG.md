@@ -1,6 +1,14 @@
 # Changelog
 
+## 1.4.0
+
+### Added
+
+- [#1](https://github.com/MoWael11/create-ex/pull/1) [`be54550673a61636ad9664ee37c795a79ca5362e`](https://github.com/MoWael11/create-ex/commit/be54550673a61636ad9664ee37c795a79ca5362e) - added drizzle support
+
 ## 1.3.3
+
+### Changed
 
 - [`10b8970817122c045d438d7e390f37b7e4d2be41`](https://github.com/MoWael11/create-ex/commit/10b8970817122c045d438d7e390f37b7e4d2be41) - fixed error of aliases for imported modules
 

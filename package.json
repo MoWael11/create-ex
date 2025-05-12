@@ -1,6 +1,6 @@
 {
   "name": "create-ex",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Create express app with ex cli",
   "license": "MIT",
   "main": "index.js",

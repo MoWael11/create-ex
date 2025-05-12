@@ -7,7 +7,7 @@ This project was generated using **Create Ex**, a powerful TypeScript-based CLI 
 - **TypeScript:** Built entirely with TypeScript for better developer experience, type safety, and enhanced code quality
 - **Modular API Structure:** Routes, controllers, services, helpers, and mappers
 - **Optional Web Socket Integration:** Real-time communication using Socket.IO with TypeScript support and modular event handling
-- **Optional Database Integration:** Optional Prisma support with multiple database providers:
+- **Optional Database Integration:** Optional Prisma or Drizzle support with multiple database providers:
   - [SQLite](https://www.sqlite.org)
   - [MySQL](https://www.mysql.com)
   - [Planetscale](https://planetscale.com)
@@ -43,6 +43,7 @@ For more details on how to work with Express and the other tools, check out thes
 - [Express](https://expressjs.com)
 - [Socket.IO](https://socket.io)
 - [Prisma](https://www.prisma.io)
+- [Drizzle](https://orm.drizzle.team)
 - [Typescript](https://www.typescriptlang.org)
 - [ESLint](https://eslint.org)
 

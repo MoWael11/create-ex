@@ -8,6 +8,15 @@
   Interactive CLI tool to bootstrap a modular typesafe Express API application.
 </p>
 
+<div align="center">
+
+[![Express.js][express-img]][express-url]
+[![NPM version][npm-img]][npm-url]
+[![Downloads][downloads-img]][npm-url]
+[![PRs-Welcome][contribute-img]][contribute-url]
+
+</div>
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -25,7 +34,7 @@
 
 - **TypeScript**
 - **Modular Structure:** Clear separation of routes, controllers, services, and more.
-- **Optional Integrations:** Choose from Prisma (with multiple database support), Socket.IO, ESLint, and more.
+- **Optional Integrations:** Choose from **Prisma** or **Drizzle** (with multiple database support), **Socket.IO**, **ESLint**, and more.
 - **Automated Setup:** Quickly initialize Git, install dependencies, and get started.
 
 It's a CLI tool to streamline the setup of a modular Express API application. Every component is optional, and the final template is generated based on your specific needs.
@@ -90,3 +99,11 @@ We welcome contributions to improve Create Express App! Please see our [CONTRIBU
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/MoWael11/create-ex/blob/main/LICENSE) file for details.
+
+[downloads-img]: https://img.shields.io/npm/dm/create-ex?color=364fc7&logoColor=364fc7
+[npm-url]: https://www.npmjs.com/package/create-ex
+[npm-img]: https://img.shields.io/npm/v/create-ex?color=08ad52&logoColor=0b7285
+[contribute-url]: https://github.com/MoWael11/create-ex/blob/main/CONTRIBUTING.md
+[contribute-img]: https://img.shields.io/badge/PRs-welcome-blue.svg
+[express-url]: https://expressjs.com
+[express-img]: https://img.shields.io/badge/Express.js-%23404d59.svg?logo=express&logoColor=%2361DAFB

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.3
+
+### Fixed
+
+- [`114437f58647ea52dd75479b5b21e23d15c8e771`](https://github.com/MoWael11/create-ex/commit/114437f58647ea52dd75479b5b21e23d15c8e771) - fixed error file already exists on overide option at scaffold process
+
 ## 1.4.0
 
 ### Added

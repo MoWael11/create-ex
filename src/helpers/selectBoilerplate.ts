@@ -84,14 +84,13 @@ export const selectFiles = ({ projectDir, packages }: SelectBoilerplateProps, fo
     const files = fs.readdirSync(sourceDir);
 
     const destDir = path.join(projectDir, `src/${folder}`);
-    fs.mkdirSync(destDir);
 
     for (const file of files) {
       const fileSrc = path.join(sourceDir, file);
       const fileDest = path.join(destDir, file);
 
       if (fs.statSync(fileSrc).isFile()) {
-        fs.copyFileSync(fileSrc, fileDest);
+        fs.copySync(fileSrc, fileDest);
       } else if (fs.statSync(fileSrc).isDirectory()) {
         let fileName = `base.${ext}`;
         if (usingPrisma) {
@@ -104,7 +103,7 @@ export const selectFiles = ({ projectDir, packages }: SelectBoilerplateProps, fo
         const folderName = path.basename(fileSrc);
         const destFile = path.join(destDir, `${folderName}.${ext}`);
 
-        fs.copyFileSync(srcFile, destFile);
+        fs.copySync(srcFile, destFile);
       }
     }
   }

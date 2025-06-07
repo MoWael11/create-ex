@@ -1,6 +1,6 @@
 # Create Ex
 
-This project was generated using **Create Ex**, a powerful TypeScript-based CLI tool that bootstraps a modular Express API application with optional Prisma,Drizzle, SocketIO integrations.
+This project was generated using **Create Ex**, a powerful TypeScript-based CLI tool that bootstraps a modular Express API application with optional Prisma, Drizzle, SocketIO integrations.
 
 ## Features
 

@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.5.0
+
+### Added
+
+- [#4](https://github.com/MoWael11/create-ex/pull/4) [`b5e89bfd9515e95f6987cad18c194ecae65c79d0`](https://github.com/MoWael11/create-ex/commit/b5e89bfd9515e95f6987cad18c194ecae65c79d0) - added types support for ts projects
+
+### Changed
+
+- [`5a91e861263be227fb0af42cf0846361584f7010`](https://github.com/MoWael11/create-ex/commit/5a91e861263be227fb0af42cf0846361584f7010) - updated docs
+
+### Fixed
+
+- [`40ce71a5785621e3b68852773849e5d0ace72625`](https://github.com/MoWael11/create-ex/commit/40ce71a5785621e3b68852773849e5d0ace72625) - fixed catch-all route to handle unhandled routes
+
+## 1.4.5
+
+### Fixed
+
+- [`df2c0ecc5a317eb147d46ea4a2518ffae370f2af`](https://github.com/MoWael11/create-ex/commit/df2c0ecc5a317eb147d46ea4a2518ffae370f2af) - fixed express errors regarding async errors and catch-all route. back2back to express v-4 :)
+
+## 1.4.4
+
+### Changed
+
+- [`1c465af2c08a73b0ccf82aa06e75b1e21b5633fb`](https://github.com/MoWael11/create-ex/commit/1c465af2c08a73b0ccf82aa06e75b1e21b5633fb) - Upgraded to express v5
+
 ## 1.4.3
 
 ### Fixed
@@ -10,7 +36,7 @@
 
 ### Added
 
-- [#1](https://github.com/MoWael11/create-ex/pull/1) [`be54550673a61636ad9664ee37c795a79ca5362e`](https://github.com/MoWael11/create-ex/commit/be54550673a61636ad9664ee37c795a79ca5362e) - added drizzle support
+- [#3](https://github.com/MoWael11/create-ex/pull/3) [`be54550673a61636ad9664ee37c795a79ca5362e`](https://github.com/MoWael11/create-ex/commit/be54550673a61636ad9664ee37c795a79ca5362e) - added drizzle support
 
 ## 1.3.3
 

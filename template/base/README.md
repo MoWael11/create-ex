@@ -26,7 +26,8 @@ A brief overview of the key folders in this project:
 ├── routes          # API endpoints definitions
 ├── services        # Business logic and data processing
 ├── mappers         # Data transformation functions
-└── middlewares     # Express middleware (e.g., error handling, logging)
+├── middlewares     # Express middleware (e.g., error handling, logging)
+└── types           # Only for ts projects to declare types
 ```
 
 ## What's Next?

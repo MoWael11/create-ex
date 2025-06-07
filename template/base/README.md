@@ -27,7 +27,8 @@ A brief overview of the key folders in this project:
 ├── services        # Business logic and data processing
 ├── helpers         # Utility functions and shared logic
 ├── mappers         # Data transformation functions
-└── middlewares     # Express middleware (e.g., error handling, logging)
+├── middlewares     # Express middleware (e.g., error handling, logging)
+└── types           # Only for ts projects to declare types
 ```
 
 ## What's Next?

@@ -6,7 +6,7 @@ import { PKG_ROOT } from '@/consts.js';
 import { addPackageDependency } from '@/utils/addPackageDependency.js';
 import { type Installer } from './index.js';
 
-export const typescriptInstaller: Installer = ({ projectDir }) => {
+export const typescriptInstaller: Installer = ({ projectDir, packages }) => {
   addPackageDependency({
     projectDir,
     devMode: true,
@@ -22,6 +22,7 @@ export const typescriptInstaller: Installer = ({ projectDir }) => {
     ],
   });
 
+  const usingDb = packages.prisma.inUse || packages.drizzle.inUse;
   const extrasDir = path.join(PKG_ROOT, 'template/extras');
 
   const tsCfgSrc = path.join(extrasDir, 'config/tsconfig.json');
@@ -29,6 +30,10 @@ export const typescriptInstaller: Installer = ({ projectDir }) => {
 
   const tsupCfgSrc = path.join(extrasDir, 'config/tsup.config.ts');
   const tsupCfgDest = path.join(projectDir, 'tsup.config.ts');
+
+  const typesEnvFile = usingDb ? 'env-with-db.d.ts' : 'env.d.ts';
+  const typesEnvSrc = path.join(extrasDir, 'src/ts/types', typesEnvFile);
+  const typesEnvDest = path.join(projectDir, 'src/types/env.d.ts');
 
   const pkgJsonPath = path.join(projectDir, 'package.json');
   const pkgJson = fs.readJsonSync(pkgJsonPath) as PackageJson;
@@ -45,5 +50,6 @@ export const typescriptInstaller: Installer = ({ projectDir }) => {
 
   fs.copySync(tsCfgSrc, tsCfgDest);
   fs.copySync(tsupCfgSrc, tsupCfgDest);
+  fs.copySync(typesEnvSrc, typesEnvDest);
   fs.writeJsonSync(pkgJsonPath, pkgJson, { spaces: 2 });
 };

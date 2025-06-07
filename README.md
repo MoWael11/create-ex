@@ -32,10 +32,16 @@
 
 `create-ex` is designed to kickstart your Express projects with best practices built in. It consists of:
 
-- **TypeScript**
-- **Modular Structure:** Clear separation of routes, controllers, services, and more.
-- **Optional Integrations:** Choose from **Prisma** or **Drizzle** (with multiple database support), **Socket.IO**, **ESLint**, and more.
-- **Automated Setup:** Quickly initialize Git, install dependencies, and get started.
+- **TypeScript:** Built entirely with TypeScript
+- **Modular API Structure:** Routes, controllers, services, and mappers
+- **Optional Database Integration:** Optional Prisma or Drizzle support with multiple database providers:
+  - [SQLite](https://www.sqlite.org)
+  - [MySQL](https://www.mysql.com)
+  - [Planetscale](https://planetscale.com)
+  - [PostgreSQL](https://www.postgresql.org)
+  - [MongoDB](https://www.mongodb.com)
+- **Optional Web Socket Integration:** Real-time communication using Socket.IO with modular event handling
+- **Automated Setup:** Initialize Git, install dependencies, and configure project settings effortlessly
 
 It's a CLI tool to streamline the setup of a modular Express API application. Every component is optional, and the final template is generated based on your specific needs.
 We provide our recommendations for best practices, but ultimately, the decisions are yours.

@@ -7,7 +7,7 @@ const router = Router();
  * @route {GET} /status
  * @auth optional
  */
-router.route('/').get((_, res) => {
+router.route('*').all((_, res) => {
   res.sendStatus(404);
 });
 
